@@ -1,8 +1,8 @@
-using AuthenApp.Auth;
+using AuthenApp.Domain.Enitities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AuthenApp.Controllers
+namespace AuthenApp.Presentation.Controllers
 {
     [Authorize(Roles = UserRoles.Admin)]
     [ApiController]

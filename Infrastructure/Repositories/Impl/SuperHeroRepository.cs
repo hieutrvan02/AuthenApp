@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using AuthenApp.Models;
-using AuthenApp.Auth;
+using AuthenApp.Infrastructure.Repositories;
+using AuthenApp.Infrastructure.Data;
+using AuthenApp.Domain.Enitities;
 
-namespace AuthenApp.Repositories.Impl
+namespace AuthenApp.Infrastructure.Repositories.Impl
 
 {
     public class SuperHeroRepository : ISuperHeroRepository

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AuthenApp.Models;
+using AuthenApp.Domain.Enitities;
 
-namespace AuthenApp.Auth
+namespace AuthenApp.Infrastructure.Data
 {
     public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {

@@ -1,4 +1,4 @@
-﻿namespace AuthenApp.Auth
+﻿namespace AuthenApp.Presentation.Models
 {
     public class Response
     {

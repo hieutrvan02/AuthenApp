@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using AuthenApp.DTOs;
-using AuthenApp.Models;
-using AuthenApp.Repositories;
+using AuthenApp.Application.DTOs;
+using AuthenApp.Infrastructure.Repositories;
+using AuthenApp.Domain.Enitities;
 
-namespace AuthenApp.Controllers
+namespace AuthenApp.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

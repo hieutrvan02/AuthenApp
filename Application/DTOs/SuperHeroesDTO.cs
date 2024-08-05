@@ -1,4 +1,4 @@
-﻿namespace AuthenApp.DTOs
+﻿namespace AuthenApp.Application.DTOs
 {
     public class SuperHeroDto
     {

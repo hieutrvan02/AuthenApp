@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using AuthenApp.DTOs;
-using AuthenApp.Models;
+using AuthenApp.Application.DTOs;
+using AuthenApp.Domain.Enitities;
 
-namespace AuthenApp.Mappers
+namespace AuthenApp.Application.Mappers
 {
     public class AutoMapperProfile : Profile
     {

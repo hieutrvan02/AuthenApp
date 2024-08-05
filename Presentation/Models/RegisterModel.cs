@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AuthenApp.Auth
+namespace AuthenApp.Presentation.Models
 {
     public class RegisterModel
     {

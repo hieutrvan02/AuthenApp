@@ -1,13 +1,13 @@
-using AuthenApp.Auth;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using AuthenApp.Mappers;
-using AuthenApp.Repositories;
 using System.Text;
-using AuthenApp.Repositories.Impl;
-using AuthenApp.Services;
+using AuthenApp.Application.Mappers;
+using AuthenApp.Infrastructure.Services;
+using AuthenApp.Infrastructure.Repositories;
+using AuthenApp.Infrastructure.Repositories.Impl;
+using AuthenApp.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;

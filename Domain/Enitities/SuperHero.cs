@@ -1,4 +1,4 @@
-﻿namespace AuthenApp.Models
+﻿namespace AuthenApp.Domain.Enitities
 {
     public class SuperHero
     {

@@ -1,6 +1,6 @@
-﻿using AuthenApp.Models;
+﻿using AuthenApp.Domain.Enitities;
 
-namespace AuthenApp.Repositories
+namespace AuthenApp.Infrastructure.Repositories
 {
     public interface ISuperHeroRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace AuthenApp.Auth
+﻿namespace AuthenApp.Domain.Enitities
 {
     public static class UserRoles
     {

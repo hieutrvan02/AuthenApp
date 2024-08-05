@@ -1,5 +1,6 @@
-﻿using AuthenApp.Auth;
-using AuthenApp.Services;
+﻿using AuthenApp.Domain.Enitities;
+using AuthenApp.Infrastructure.Services;
+using AuthenApp.Presentation.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -7,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace AuthenApp.Controllers
+namespace AuthenApp.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -113,5 +114,5 @@ namespace AuthenApp.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
     }
-    
+
 }

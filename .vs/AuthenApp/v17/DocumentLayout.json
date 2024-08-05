@@ -3,68 +3,72 @@
   "WorkspaceRootPath": "D:\\WorkSpace\\C# project\\AuthenApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\domain\\enitities\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:domain\\enitities\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\infrastructure\\repositories\\isuperherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:infrastructure\\repositories\\isuperherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\infrastructure\\repositories\\impl\\superherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:infrastructure\\repositories\\impl\\superherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\presentation\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:presentation\\controllers\\authenticatecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\infrastructure\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:infrastructure\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\auth\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:auth\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\presentation\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:presentation\\models\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\auth\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:auth\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\domain\\enitities\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:domain\\enitities\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\migrations\\20240805100017_updatesuper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:migrations\\20240805100017_updatesuper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\repositories\\impl\\superherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:repositories\\impl\\superherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\auth\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:auth\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\domain\\enitities\\superhero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:domain\\enitities\\superhero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\repositories\\isuperherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:repositories\\isuperherorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\presentation\\controllers\\superheroescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:presentation\\controllers\\superheroescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\models\\superhero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:models\\superhero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\application\\mappers\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:application\\mappers\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\controllers\\superheroescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:controllers\\superheroescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\mappers\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:mappers\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\presentation\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:presentation\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\auth\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:auth\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\presentation\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:presentation\\models\\loginmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\auth\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:auth\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\presentation\\models\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|solutionrelative:presentation\\models\\registermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BBD19020-951C-4995-8483-2A0ACD094954}|AuthenApp.csproj|d:\\workspace\\c# project\\authenapp\\migrations\\20240805093655_initial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,23 +82,41 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0174dea2-fdbe-4ef1-8f99-c0beae78880f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TokenService.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Services\\TokenService.cs",
-              "RelativeDocumentMoniker": "Services\\TokenService.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Services\\TokenService.cs",
-              "RelativeToolTip": "Services\\TokenService.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAA1wCMAAAAFAAAA",
+              "DocumentIndex": 0,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Domain\\Enitities\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "Domain\\Enitities\\WeatherForecast.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Domain\\Enitities\\WeatherForecast.cs",
+              "RelativeToolTip": "Domain\\Enitities\\WeatherForecast.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T10:07:52.08Z"
+              "WhenOpened": "2024-08-05T14:46:15.853Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\TokenService.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Services\\TokenService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\TokenService.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA1wCMAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T10:07:52.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "20240805100017_updateSuper.cs",
               "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Migrations\\20240805100017_updateSuper.cs",
               "RelativeDocumentMoniker": "Migrations\\20240805100017_updateSuper.cs",
@@ -106,153 +128,163 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "ISuperHeroRepository.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Repositories\\ISuperHeroRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\ISuperHeroRepository.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Repositories\\ISuperHeroRepository.cs",
-              "RelativeToolTip": "Repositories\\ISuperHeroRepository.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Repositories\\ISuperHeroRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\ISuperHeroRepository.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Repositories\\ISuperHeroRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\ISuperHeroRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:59:08.729Z"
+              "WhenOpened": "2024-08-05T09:59:08.729Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "SuperHeroRepository.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Repositories\\Impl\\SuperHeroRepository.cs",
-              "RelativeDocumentMoniker": "Repositories\\Impl\\SuperHeroRepository.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Repositories\\Impl\\SuperHeroRepository.cs",
-              "RelativeToolTip": "Repositories\\Impl\\SuperHeroRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAABAAAA",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Repositories\\Impl\\SuperHeroRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Impl\\SuperHeroRepository.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Repositories\\Impl\\SuperHeroRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\Impl\\SuperHeroRepository.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAkwCIAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:56:52.861Z"
+              "WhenOpened": "2024-08-05T09:56:52.861Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AuthenticateController.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Controllers\\AuthenticateController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AuthenticateController.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Controllers\\AuthenticateController.cs",
-              "RelativeToolTip": "Controllers\\AuthenticateController.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAmwDgAAAAEAAAA",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Controllers\\AuthenticateController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\AuthenticateController.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Controllers\\AuthenticateController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\AuthenticateController.cs",
+              "ViewState": "AQIAACIAAAAAAAAAAAAmwDkAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T09:34:03.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "UserRoles.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\UserRoles.cs",
-              "RelativeDocumentMoniker": "Auth\\UserRoles.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\UserRoles.cs",
-              "RelativeToolTip": "Auth\\UserRoles.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Domain\\Enitities\\UserRoles.cs",
+              "RelativeDocumentMoniker": "Domain\\Enitities\\UserRoles.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Domain\\Enitities\\UserRoles.cs",
+              "RelativeToolTip": "Domain\\Enitities\\UserRoles.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:30:39.387Z"
+              "WhenOpened": "2024-08-05T09:30:39.387Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAADEAAAAAAAAAAAAAAEIAAAAWAAAA",
+              "ViewState": "AQIAAC4AAAAAAAAAAIBJwEIAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-05T09:34:31.002Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "SuperHero.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Models\\SuperHero.cs",
-              "RelativeDocumentMoniker": "Models\\SuperHero.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Models\\SuperHero.cs",
-              "RelativeToolTip": "Models\\SuperHero.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Domain\\Enitities\\SuperHero.cs",
+              "RelativeDocumentMoniker": "Domain\\Enitities\\SuperHero.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Domain\\Enitities\\SuperHero.cs",
+              "RelativeToolTip": "Domain\\Enitities\\SuperHero.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:58:25.554Z"
+              "WhenOpened": "2024-08-05T09:58:25.554Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Response.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\Response.cs",
-              "RelativeDocumentMoniker": "Auth\\Response.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\Response.cs",
-              "RelativeToolTip": "Auth\\Response.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Models\\Response.cs",
+              "RelativeDocumentMoniker": "Presentation\\Models\\Response.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Models\\Response.cs",
+              "RelativeToolTip": "Presentation\\Models\\Response.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:31:57.323Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SuperHeroesController.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Controllers\\SuperHeroesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\SuperHeroesController.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Controllers\\SuperHeroesController.cs",
-              "RelativeToolTip": "Controllers\\SuperHeroesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:51:26.509Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Auth\\ApplicationDbContext.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Auth\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:30:03.435Z"
+              "WhenOpened": "2024-08-05T09:31:57.323Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "AutoMapperProfile.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Mappers\\AutoMapperProfile.cs",
-              "RelativeDocumentMoniker": "Mappers\\AutoMapperProfile.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Mappers\\AutoMapperProfile.cs",
-              "RelativeToolTip": "Mappers\\AutoMapperProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
+              "Title": "SuperHeroesController.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Controllers\\SuperHeroesController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\SuperHeroesController.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Controllers\\SuperHeroesController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\SuperHeroesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:52:54Z"
+              "WhenOpened": "2024-08-05T09:51:26.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Infrastructure\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Infrastructure\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T09:30:03.435Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "WeatherForecastController.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Controllers\\WeatherForecastController.cs",
-              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Controllers\\WeatherForecastController.cs",
-              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAABCAAAA",
+              "Title": "AutoMapperProfile.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Application\\Mappers\\AutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "Application\\Mappers\\AutoMapperProfile.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Application\\Mappers\\AutoMapperProfile.cs",
+              "RelativeToolTip": "Application\\Mappers\\AutoMapperProfile.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:38:28.374Z"
+              "WhenOpened": "2024-08-05T09:52:54Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBJwA0AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T09:38:28.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "LoginModel.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\LoginModel.cs",
-              "RelativeDocumentMoniker": "Auth\\LoginModel.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\LoginModel.cs",
-              "RelativeToolTip": "Auth\\LoginModel.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Models\\LoginModel.cs",
+              "RelativeDocumentMoniker": "Presentation\\Models\\LoginModel.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Models\\LoginModel.cs",
+              "RelativeToolTip": "Presentation\\Models\\LoginModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:31:29.642Z"
+              "WhenOpened": "2024-08-05T09:31:29.642Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "20240805093655_Initial.cs",
               "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Migrations\\20240805093655_Initial.cs",
               "RelativeDocumentMoniker": "Migrations\\20240805093655_Initial.cs",
@@ -264,7 +296,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -276,15 +308,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "RegisterModel.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\RegisterModel.cs",
-              "RelativeDocumentMoniker": "Auth\\RegisterModel.cs",
-              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Auth\\RegisterModel.cs",
-              "RelativeToolTip": "Auth\\RegisterModel.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Models\\RegisterModel.cs",
+              "RelativeDocumentMoniker": "Presentation\\Models\\RegisterModel.cs",
+              "ToolTip": "D:\\WorkSpace\\C# project\\AuthenApp\\Presentation\\Models\\RegisterModel.cs",
+              "RelativeToolTip": "Presentation\\Models\\RegisterModel.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-05T09:31:03.772Z"
+              "WhenOpened": "2024-08-05T09:31:03.772Z",
+              "EditorCaption": ""
             }
           ]
         }

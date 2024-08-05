@@ -1,4 +1,4 @@
-namespace AuthenApp
+namespace AuthenApp.Domain.Enitities
 {
     public class WeatherForecast
     {

@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace AuthenApp.Services
+namespace AuthenApp.Infrastructure.Services
 {
     public interface ITokenService
     {
