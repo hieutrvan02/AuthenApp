@@ -1,15 +1,11 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace AuthenApp.Infrastructure.Services
+namespace AuthenApp.Infrastructure.Services.Impl
 {
-    public interface ITokenService
-    {
-        string GenerateToken(IEnumerable<Claim> claims);
-    }
-
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
@@ -32,6 +28,23 @@ namespace AuthenApp.Infrastructure.Services
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public List<Claim> GetClaims(IdentityUser user, IList<string> roles)
+        {
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            };
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            return claims;
         }
     }
 }

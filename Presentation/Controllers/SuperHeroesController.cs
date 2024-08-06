@@ -22,6 +22,7 @@ namespace AuthenApp.Presentation.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Policy = "Products.Create")]
         [HttpGet]
         public async Task<ActionResult<List<SuperHeroDto>>> GetAllHeroes()
         {
@@ -43,6 +44,7 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(heroDto);
         }
 
+        [Authorize(Roles = nameof(UserRoles.User) )]
         [HttpPost]
         public async Task<ActionResult<List<SuperHeroDto>>> AddHero(CreateSuperHeroDto createSuperHeroDto)
         {
@@ -64,6 +66,7 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(updatedHeroDto);
         }
 
+        [Authorize(Roles = nameof(UserRoles.Admin))]
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<SuperHeroDto>>> DeleteHero(int id)
         {

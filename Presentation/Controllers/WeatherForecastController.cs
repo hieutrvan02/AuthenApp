@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AuthenApp.Presentation.Controllers
 {
-    [Authorize(Roles = UserRoles.Admin)]
+    [Authorize(Roles = nameof(UserRoles.Admin))]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase

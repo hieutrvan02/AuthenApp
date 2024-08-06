@@ -1,8 +1,8 @@
 ﻿namespace AuthenApp.Domain.Enitities
 {
-    public static class UserRoles
+    public enum UserRoles
     {
-        public const string Admin = "Admin";
-        public const string User = "User";
+        Admin,
+        User
     }
 }

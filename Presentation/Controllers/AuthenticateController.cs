@@ -1,12 +1,9 @@
 ﻿using AuthenApp.Domain.Enitities;
 using AuthenApp.Infrastructure.Services;
 using AuthenApp.Presentation.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 namespace AuthenApp.Presentation.Controllers
 {
@@ -15,19 +12,20 @@ namespace AuthenApp.Presentation.Controllers
     public class AuthenticateController : ControllerBase
     {
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IRoleService _roleService;
         private readonly ITokenService _tokenService;
 
         public AuthenticateController(
             UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager,
+            IRoleService roleService,
             ITokenService tokenService)
         {
             _userManager = userManager;
-            _roleManager = roleManager;
+            _roleService = roleService;
             _tokenService = tokenService;
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] LoginModel model)
@@ -36,18 +34,7 @@ namespace AuthenApp.Presentation.Controllers
             if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var userRoles = await _userManager.GetRolesAsync(user);
-
-                var authClaims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                };
-
-                foreach (var userRole in userRoles)
-                {
-                    authClaims.Add(new Claim(ClaimTypes.Role, userRole));
-                }
-
+                var authClaims = _tokenService.GetClaims(user, userRoles);
                 var token = _tokenService.GenerateToken(authClaims);
 
                 return Ok(new
@@ -59,6 +46,7 @@ namespace AuthenApp.Presentation.Controllers
             return Unauthorized();
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel model)
@@ -80,6 +68,7 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
 
+        [AllowAnonymous]
         [HttpPost]
         [Route("register-admin")]
         public async Task<IActionResult> RegisterAdmin([FromBody] RegisterModel model)
@@ -98,21 +87,9 @@ namespace AuthenApp.Presentation.Controllers
             if (!result.Succeeded)
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "User creation failed! Please check user details and try again." });
 
-            if (!await _roleManager.RoleExistsAsync(UserRoles.Admin))
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.Admin));
-            if (!await _roleManager.RoleExistsAsync(UserRoles.User))
-                await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
+            await _roleService.AssignRolesAsync(user, new[] { UserRoles.Admin, UserRoles.User });
 
-            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
-            {
-                await _userManager.AddToRoleAsync(user, UserRoles.Admin);
-            }
-            if (await _roleManager.RoleExistsAsync(UserRoles.Admin))
-            {
-                await _userManager.AddToRoleAsync(user, UserRoles.User);
-            }
             return Ok(new Response { Status = "Success", Message = "User created successfully!" });
         }
     }
-
 }

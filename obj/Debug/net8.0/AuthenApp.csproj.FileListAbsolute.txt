@@ -142,3 +142,4 @@ D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\refint\AuthenApp.dll
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.pdb
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.genruntimeconfig.cache
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\ref\AuthenApp.dll
+D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.sourcelink.json

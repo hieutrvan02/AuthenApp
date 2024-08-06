@@ -4,10 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using AuthenApp.Application.Mappers;
-using AuthenApp.Infrastructure.Services;
 using AuthenApp.Infrastructure.Repositories;
 using AuthenApp.Infrastructure.Repositories.Impl;
 using AuthenApp.Infrastructure.Data;
+using AuthenApp.Infrastructure.Services.Impl;
+using AuthenApp.Infrastructure.Seeds;
+using AuthenApp.Infrastructure.Services;
+using AuthenApp.Domain.Authorization;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -69,9 +73,24 @@ builder.Services.AddScoped<ISuperHeroRepository, SuperHeroRepository>();
 
 // Register service
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IRoleService, RoleService>();
 
 // Add AutoMapper with explicit assembly reference
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+
+// Add Authorization services and handlers
+builder.Services.AddAuthorization(options =>
+{
+    // Add a policy for each permission
+    options.AddPolicy("Products.View", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.View")));
+    options.AddPolicy("Products.Create", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.Create")));
+    options.AddPolicy("Products.Edit", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.Edit")));
+    options.AddPolicy("Products.Delete", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.Delete")));
+});
+
+// Add authorization services
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -79,6 +98,20 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+// Ensure roles and users are created
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+    // Seed default roles
+    await DefaultRoles.SeedAsync(roleManager);
+
+    // Seed default users
+    await DefaultUsers.SeedBasicUserAsync(userManager, roleManager);
+    await DefaultUsers.SeedSuperAdminAsync(userManager, roleManager);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
