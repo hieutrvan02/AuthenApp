@@ -27,31 +27,42 @@ namespace AuthenApp.Infrastructure.Repositories.Impl
 
         public async Task AddHeroAsync(SuperHero superHero)
         {
-            _dbContext.SuperHeroes.Add(superHero);
+            if (superHero == null)
+            {
+                throw new ArgumentNullException(nameof(superHero));
+            }
+
+            await _dbContext.SuperHeroes.AddAsync(superHero);
             await _dbContext.SaveChangesAsync();
         }
 
         public async Task UpdateHeroAsync(SuperHero superHero)
         {
-            var dbHero = await _dbContext.SuperHeroes.FindAsync(superHero.Id);
-            if (dbHero != null)
+            if (superHero == null)
             {
-                dbHero.Name = superHero.Name;
-                dbHero.FirstName = superHero.FirstName;
-                dbHero.LastName = superHero.LastName;
-                dbHero.Place = superHero.Place;
-                await _dbContext.SaveChangesAsync();
+                throw new ArgumentNullException(nameof(superHero));
             }
+
+            var dbHero = await GetHeroByIdAsync(superHero.Id);
+            if (dbHero == null)
+            {
+                throw new KeyNotFoundException($"Hero with ID {superHero.Id} not found.");
+            }
+
+            _dbContext.Entry(dbHero).CurrentValues.SetValues(superHero);
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task DeleteHeroAsync(int id)
         {
-            var dbHero = await _dbContext.SuperHeroes.FindAsync(id);
-            if (dbHero != null)
+            var dbHero = await GetHeroByIdAsync(id);
+            if (dbHero == null)
             {
-                _dbContext.SuperHeroes.Remove(dbHero);
-                await _dbContext.SaveChangesAsync();
+                throw new KeyNotFoundException($"Hero with ID {id} not found.");
             }
+
+            _dbContext.SuperHeroes.Remove(dbHero);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

@@ -40,6 +40,8 @@ D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
 D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Mono.TextTemplating.dll
+D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Npgsql.dll
+D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\WorkSpace\C# project\AuthenApp\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -128,6 +130,7 @@ D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.AssemblyInfo.cs
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.csproj.CoreCompileInputs.cache
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.MvcApplicationPartsAssemblyInfo.cs
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.MvcApplicationPartsAssemblyInfo.cache
+D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.sourcelink.json
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\staticwebassets.build.json
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\staticwebassets.development.json
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\staticwebassets\msbuild.AuthenApp.Microsoft.AspNetCore.StaticWebAssets.props
@@ -142,4 +145,3 @@ D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\refint\AuthenApp.dll
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.pdb
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.genruntimeconfig.cache
 D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\ref\AuthenApp.dll
-D:\WorkSpace\C# project\AuthenApp\obj\Debug\net8.0\AuthenApp.sourcelink.json

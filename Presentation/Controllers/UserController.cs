@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AuthenApp.Domain.Enitities;
+using AuthenApp.Infrastructure.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -6,43 +8,51 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuthenApp.Presentation.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly IUserService _userService;
 
-        public UsersController(UserManager<IdentityUser> userManager)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UsersController"/> class.
+        /// </summary>
+        /// <param name="userService">The user service.</param>
+        public UsersController(IUserService userService)
         {
-            _userManager = userManager;
+            _userService = userService;
         }
 
+        /// <summary>
+        /// Gets the currently authenticated user.
+        /// </summary>
+        /// <returns>The current user.</returns>
+        [Authorize(Roles = nameof(UserRoles.User))]
         [HttpGet("current")]
         public async Task<ActionResult<IdentityUser>> GetCurrentUser()
         {
-            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
-            if (currentUser == null)
+            var user = await _userService.GetCurrentUserAsync(HttpContext.User);
+            if (user == null)
             {
-                return NotFound();
+                return NotFound("Current user not found.");
             }
-            return Ok(currentUser);
+            return Ok(user);
         }
 
+        /// <summary>
+        /// Gets all users except the currently authenticated user.
+        /// </summary>
+        /// <returns>A list of all users except the current user.</returns>
+        [Authorize(Roles = nameof(UserRoles.Admin))]
         [HttpGet("all")]
         public async Task<ActionResult<IEnumerable<IdentityUser>>> GetAllUsersExceptCurrent()
         {
-            var currentUser = await _userManager.GetUserAsync(HttpContext.User);
-            if (currentUser == null)
+            var users = await _userService.GetAllUsersExceptCurrentAsync(HttpContext.User);
+            if (users == null || !users.Any())
             {
-                return NotFound();
+                return NotFound("No users found.");
             }
-
-            var allUsersExceptCurrentUser = await _userManager.Users
-                .Where(a => a.Id != currentUser.Id)
-                .ToListAsync();
-
-            return Ok(allUsersExceptCurrentUser);
+            return Ok(users);
         }
     }
 }

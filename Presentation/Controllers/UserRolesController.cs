@@ -1,4 +1,6 @@
 ﻿using AuthenApp.Domain.Enitities;
+using AuthenApp.Infrastructure.Services;
+using AuthenApp.Infrastructure.Services.Impl;
 using AuthenApp.Presentation.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,73 +13,48 @@ namespace AuthenApp.Presentation.Controllers
     [Route("api/[controller]")]
     public class UserRolesController : ControllerBase
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IUserRoleService _userRoleService;
 
-        public UserRolesController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager, RoleManager<IdentityRole> roleManager)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserRolesController"/> class.
+        /// </summary>
+        /// <param name="userRoleService">The user role service.</param>
+        public UserRolesController(IUserRoleService userRoleService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
-            _roleManager = roleManager;
+            _userRoleService = userRoleService;
         }
 
-        // GET api/userroles/{userId}
+        /// <summary>
+        /// Retrieves roles assigned to a specific user.
+        /// </summary>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>A <see cref="ManageUserRolesViewModel"/> containing the user's roles.</returns>
         [HttpGet("{userId}")]
         public async Task<ActionResult<ManageUserRolesViewModel>> GetUserRoles(string userId)
         {
-            var viewModel = new List<UserRolesViewModel>();
-            var user = await _userManager.FindByIdAsync(userId);
-            if (user == null)
+            var model = await _userRoleService.GetUserRolesAsync(userId);
+            if (model == null)
             {
-                return NotFound();
+                return NotFound($"User with ID {userId} not found.");
             }
-
-            foreach (var role in _roleManager.Roles.ToList())
-            {
-                var userRolesViewModel = new UserRolesViewModel
-                {
-                    RoleName = role.Name,
-                    Selected = await _userManager.IsInRoleAsync(user, role.Name)
-                };
-                viewModel.Add(userRolesViewModel);
-            }
-
-            var model = new ManageUserRolesViewModel
-            {
-                UserId = userId,
-                UserRoles = viewModel
-            };
-
             return Ok(model);
         }
 
-        // POST api/userroles/{id}
+        /// <summary>
+        /// Updates roles for a specific user.
+        /// </summary>
+        /// <param name="id">The ID of the user.</param>
+        /// <param name="model">The model containing updated role information.</param>
+        /// <returns>A task representing the asynchronous operation.</returns>
         [HttpPost("{id}")]
         public async Task<IActionResult> UpdateUserRoles(string id, [FromBody] ManageUserRolesViewModel model)
         {
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            var result = await _userRoleService.UpdateUserRolesAsync(id, model);
 
-            var roles = await _userManager.GetRolesAsync(user);
-            var result = await _userManager.RemoveFromRolesAsync(user, roles);
             if (!result.Succeeded)
             {
                 return BadRequest(result.Errors);
             }
-
-            result = await _userManager.AddToRolesAsync(user, model.UserRoles.Where(x => x.Selected).Select(y => y.RoleName));
-            if (!result.Succeeded)
-            {
-                return BadRequest(result.Errors);
-            }
-
-            var currentUser = await _userManager.GetUserAsync(User);
-            await _signInManager.RefreshSignInAsync(currentUser);
-            await Infrastructure.Seeds.DefaultUsers.SeedSuperAdminAsync(_userManager, _roleManager);
 
             return NoContent(); // 204 No Content
         }

@@ -13,7 +13,7 @@ namespace AuthenApp.Domain.Authorization
         public Task<AuthorizationPolicy> GetDefaultPolicyAsync() => FallbackPolicyProvider.GetDefaultPolicyAsync();
         public Task<AuthorizationPolicy> GetPolicyAsync(string policyName)
         {
-            if (policyName.StartsWith("Permission", StringComparison.OrdinalIgnoreCase))
+            if (policyName.StartsWith("Permissions", StringComparison.OrdinalIgnoreCase))
             {
                 var policy = new AuthorizationPolicyBuilder();
                 policy.AddRequirements(new PermissionRequirement(policyName));

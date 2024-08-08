@@ -13,13 +13,30 @@ using AuthenApp.Infrastructure.Services;
 using AuthenApp.Domain.Authorization;
 using Microsoft.AspNetCore.Authorization;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("http://localhost:5173")
+                                .AllowAnyHeader()
+                                .AllowAnyMethod(); ;
+                      });
+});
 
 // Add services to the container.
 
 // For Entity Framework
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
+//Connect SQL Server
+//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("ConnStr")));
+
+//Connect Postgresql
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("PostgresqlConStr")));
 
 // For Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
@@ -74,19 +91,12 @@ builder.Services.AddScoped<ISuperHeroRepository, SuperHeroRepository>();
 // Register service
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
+builder.Services.AddScoped<IPermissionService, PermissionService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRoleService, UserRoleService>();
 
 // Add AutoMapper with explicit assembly reference
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
-
-// Add Authorization services and handlers
-builder.Services.AddAuthorization(options =>
-{
-    // Add a policy for each permission
-    options.AddPolicy("Products.View", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.View")));
-    options.AddPolicy("Products.Create", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.Create")));
-    options.AddPolicy("Products.Edit", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.Edit")));
-    options.AddPolicy("Products.Delete", policy => policy.Requirements.Add(new PermissionRequirement("Permissions.Products.Delete")));
-});
 
 // Add authorization services
 builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
@@ -121,6 +131,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 // Authentication & Authorization
 app.UseAuthentication();

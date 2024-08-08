@@ -1,4 +1,5 @@
 ﻿using AuthenApp.Domain.Enitities;
+using AuthenApp.Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,39 +12,58 @@ namespace AuthenApp.Presentation.Controllers
     [Route("api/[controller]")]
     public class RolesController : ControllerBase
     {
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IRoleService _roleService;
 
-        public RolesController(RoleManager<IdentityRole> roleManager)
+        public RolesController(IRoleService roleService)
         {
-            _roleManager = roleManager;
+            _roleService = roleService;
         }
 
-        // GET api/roles
+        /// <summary>
+        /// Gets all roles.
+        /// </summary>
+        /// <returns>A list of roles.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<IdentityRole>>> GetRoles()
         {
-            var roles = await _roleManager.Roles.ToListAsync();
+            var roles = await _roleService.GetAllRolesAsync();
             return Ok(roles);
         }
 
-        // POST api/roles
+        /// <summary>
+        /// Adds a new role.
+        /// </summary>
+        /// <param name="roleName">The name of the role to add.</param>
+        /// <returns>Result of the role creation.</returns>
         [HttpPost]
         public async Task<ActionResult> AddRole([FromBody] string roleName)
         {
-            if (string.IsNullOrWhiteSpace(roleName))
-            {
-                return BadRequest("Role name cannot be null or empty.");
-            }
-
-            var role = new IdentityRole(roleName.Trim());
-            var result = await _roleManager.CreateAsync(role);
+            var result = await _roleService.CreateRoleAsync(roleName);
 
             if (result.Succeeded)
             {
-                return CreatedAtAction(nameof(GetRoles), new { id = role.Id }, role);
+                return CreatedAtAction(nameof(GetRoles), new { name = roleName }, await _roleService.FindRoleByNameAsync(roleName));
             }
 
             return BadRequest(result.Errors);
+        }
+
+        /// <summary>
+        /// Deletes a role by its ID.
+        /// </summary>
+        /// <param name="roleId">The ID of the role to delete.</param>
+        /// <returns>Result of the role deletion.</returns>
+        [HttpDelete("{roleId}")]
+        public async Task<IActionResult> DeleteRoleAsync(string roleId)
+        {
+            var result = await _roleService.DeleteRoleAsync(roleId);
+
+            if (result.Succeeded)
+            {
+                return NoContent(); // HTTP 204 No Content indicates successful deletion
+            }
+
+            return NotFound(); // HTTP 404 Not Found indicates that the role was not found
         }
     }
 }

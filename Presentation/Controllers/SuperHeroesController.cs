@@ -22,7 +22,11 @@ namespace AuthenApp.Presentation.Controllers
             _mapper = mapper;
         }
 
-        [Authorize(Policy = "Products.Create")]
+        /// <summary>
+        /// Retrieves all SuperHeroes.
+        /// </summary>
+        /// <returns>A list of SuperHero DTOs.</returns>
+        [Authorize(Policy = "Permissions.Products.View")]
         [HttpGet]
         public async Task<ActionResult<List<SuperHeroDto>>> GetAllHeroes()
         {
@@ -31,6 +35,11 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(heroesDto);
         }
 
+        /// <summary>
+        /// Retrieves a specific SuperHero by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the SuperHero to retrieve.</param>
+        /// <returns>The SuperHero DTO if found; otherwise, a 404 Not Found response.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<SuperHeroDto>> GetHero(int id)
         {
@@ -44,6 +53,11 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(heroDto);
         }
 
+        /// <summary>
+        /// Adds a new SuperHero.
+        /// </summary>
+        /// <param name="createSuperHeroDto">The DTO containing details of the SuperHero to add.</param>
+        /// <returns>A list of all SuperHero DTOs after the addition.</returns>
         [Authorize(Roles = nameof(UserRoles.User) )]
         [HttpPost]
         public async Task<ActionResult<List<SuperHeroDto>>> AddHero(CreateSuperHeroDto createSuperHeroDto)
@@ -55,6 +69,12 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(heroesDto);
         }
 
+        /// <summary>
+        /// Updates an existing SuperHero.
+        /// </summary>
+        /// <param name="superHeroDto">The DTO containing updated details of the SuperHero.</param>
+        /// <returns>The updated SuperHero DTO.</returns>
+        [Authorize(Policy = "Permissions.Products.Edit")]
         [Authorize]
         [HttpPut]
         public async Task<ActionResult<SuperHeroDto>> UpdateHero(SuperHeroDto superHeroDto)
@@ -66,6 +86,11 @@ namespace AuthenApp.Presentation.Controllers
             return Ok(updatedHeroDto);
         }
 
+        /// <summary>
+        /// Deletes a specific SuperHero by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the SuperHero to delete.</param>
+        /// <returns>A list of all remaining SuperHero DTOs.</returns>
         [Authorize(Roles = nameof(UserRoles.Admin))]
         [HttpDelete("{id}")]
         public async Task<ActionResult<List<SuperHeroDto>>> DeleteHero(int id)

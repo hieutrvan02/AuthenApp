@@ -1,5 +1,6 @@
 ﻿using AuthenApp.Domain.Enitities;
 using AuthenApp.Infrastructure.Helpers;
+using AuthenApp.Infrastructure.Services;
 using AuthenApp.Presentation.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,73 +13,80 @@ namespace AuthenApp.Presentation.Controllers
     [Route("api/[controller]")]
     public class PermissionController : ControllerBase
     {
+        private readonly IPermissionService _permissionService;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private const string RoleNotFoundMessage = "Role with ID {0} not found.";
+        private const string InvalidModelMessage = "Invalid model or RoleId.";
 
-        public PermissionController(RoleManager<IdentityRole> roleManager)
+        public PermissionController(IPermissionService permissionService, RoleManager<IdentityRole> roleManager)
         {
+            _permissionService = permissionService;
             _roleManager = roleManager;
         }
 
-        // GET api/permission/{roleId}
+        /// <summary>
+        /// Gets the permissions for a specific role.
+        /// </summary>
+        /// <param name="roleId">The ID of the role.</param>
+        /// <returns>A view model containing the permissions for the role.</returns>
         [HttpGet("{roleId}")]
         public async Task<ActionResult<PermissionViewModel>> GetPermissions(string roleId)
         {
-            var model = new PermissionViewModel();
-            var allPermissions = new List<RoleClaimsViewModel>();
-            allPermissions.GetPermissions(typeof(Permissions.Products), roleId);
-
             var role = await _roleManager.FindByIdAsync(roleId);
             if (role == null)
             {
-                return NotFound($"Role with ID {roleId} not found.");
+                return NotFound(string.Format(RoleNotFoundMessage, roleId));
             }
 
-            model.RoleId = roleId;
-            var claims = await _roleManager.GetClaimsAsync(role);
-            var allClaimValues = allPermissions.Select(a => a.Value).ToList();
-            var roleClaimValues = claims.Select(a => a.Value).ToList();
-            var authorizedClaims = allClaimValues.Intersect(roleClaimValues).ToList();
-
-            foreach (var permission in allPermissions)
-            {
-                if (authorizedClaims.Any(a => a == permission.Value))
-                {
-                    permission.Selected = true;
-                }
-            }
-            model.RoleClaims = allPermissions;
-
+            var model = await _permissionService.BuildPermissionViewModel(roleId);
             return Ok(model);
         }
 
-        // POST api/permission/update
+        /// <summary>
+        /// Updates the permissions for a specific role.
+        /// </summary>
+        /// <param name="model">The view model containing the updated permissions.</param>
+        /// <returns>No content if successful.</returns>
         [HttpPost("update")]
         public async Task<IActionResult> UpdatePermissions([FromBody] PermissionViewModel model)
         {
             if (model == null || string.IsNullOrEmpty(model.RoleId))
             {
-                return BadRequest("Invalid model or RoleId.");
+                return BadRequest(InvalidModelMessage);
             }
 
             var role = await _roleManager.FindByIdAsync(model.RoleId);
             if (role == null)
             {
-                return NotFound($"Role with ID {model.RoleId} not found.");
+                return NotFound(string.Format(RoleNotFoundMessage, model.RoleId));
             }
 
-            var claims = await _roleManager.GetClaimsAsync(role);
-            foreach (var claim in claims)
+            await _permissionService.UpdateRoleClaims(role, model.RoleClaims);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Creates permissions for a specific module and assigns them to a role.
+        /// </summary>
+        /// <param name="model">The model containing the role ID and module name.</param>
+        /// <returns>A message indicating the permissions were added.</returns>
+        [HttpPost("create")]
+        public async Task<IActionResult> CreatePermissions([FromBody] CreatePermissionModel model)
+        {
+            if (model == null || string.IsNullOrEmpty(model.RoleId) || string.IsNullOrEmpty(model.Module))
             {
-                await _roleManager.RemoveClaimAsync(role, claim);
+                return BadRequest("Invalid model, RoleId, or Module.");
             }
 
-            var selectedClaims = model.RoleClaims.Where(a => a.Selected).ToList();
-            foreach (var claim in selectedClaims)
+            var role = await _roleManager.FindByIdAsync(model.RoleId);
+            if (role == null)
             {
-                await _roleManager.AddPermissionClaim(role, claim.Value);
+                return NotFound(string.Format(RoleNotFoundMessage, model.RoleId));
             }
 
-            return NoContent(); // 204 No Content
+            await _permissionService.AddPermissionsToRole(role, model.Module);
+            return Ok($"Permissions for module '{model.Module}' have been added to role '{role.Name}'.");
         }
     }
 }
+
