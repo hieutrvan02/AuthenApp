@@ -1,4 +1,4 @@
-using AuthenApp.Application;
+﻿using AuthenApp.Application;
 using AuthenApp.Application.Data;
 using AuthenApp.Application.Seeds;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -6,12 +6,38 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
+// Config Swagger
+builder.Services.AddSwaggerGen(options =>
+{
+    var securityScheme = new OpenApiSecurityScheme
+    {
+        Name = "Keycloack",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.OpenIdConnect,
+        OpenIdConnectUrl = new Uri($"http://keycloak:8080/realms/NewRealm/.well-known/openid-configuration"),
+        Scheme = "bearer",
+        BearerFormat = "JWT",
+        Reference = new OpenApiReference
+        {
+            Id = "Bearer",
+            Type = ReferenceType.SecurityScheme
+        }
+    };
+    options.AddSecurityDefinition(securityScheme.Reference.Id, securityScheme);
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {securityScheme, Array.Empty<string>()}
+    });
+
+
+});
 
 //Connect Postgresql
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("PostgresqlConStr")));
@@ -40,26 +66,48 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.User.RequireUniqueEmail = true;
 });
 
-// Adding Authentication
+//// Adding Authentication
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+//    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+//})
+
+//// Adding Jwt Bearer
+//.AddJwtBearer(options =>
+//{
+//    options.SaveToken = true;
+//    options.RequireHttpsMetadata = false;
+//    options.TokenValidationParameters = new TokenValidationParameters()
+//    {
+//        ValidateIssuer = true,
+//        ValidateAudience = true,
+//        ValidAudience = configuration["JWT:ValidAudience"],
+//        ValidIssuer = configuration["JWT:ValidIssuer"],
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+//    };
+//});
+
+//Verify JWT Keycloak
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 })
-
-// Adding Jwt Bearer
 .AddJwtBearer(options =>
 {
-    options.SaveToken = true;
-    options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters = new TokenValidationParameters()
+    options.Authority = "http://keycloak:8080/realms/NewRealm";
+    options.Audience = "account";
+    options.RequireHttpsMetadata = false; // Chỉ dùng cho môi trường phát triển
+    options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
+        ValidIssuer = "http://keycloak:8080/realms/NewRealm",
         ValidateAudience = true,
-        ValidAudience = configuration["JWT:ValidAudience"],
-        ValidIssuer = configuration["JWT:ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+        ValidAudience = "account",
+        ValidateLifetime = true,
+        //RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
     };
 });
 
@@ -77,6 +125,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.ApplyMigrations();
 }
 
 // Ensure roles and users are created

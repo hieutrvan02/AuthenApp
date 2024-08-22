@@ -1,0 +1,46 @@
+networks:
+  keycloak_network:
+    driver: bridge
+
+services:
+  authenapp.api:
+    image: demo:latest
+    container_name: authenapp
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5200:5200"
+    depends_on:
+      - authenapp.database
+    networks:
+      - keycloak_network
+
+  authenapp.database:
+    image: postgres:latest
+    container_name: authenapp.database
+    environment: 
+      - POSTGRES_DB=AuthenAppDb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=sa
+    volumes:
+      - ./.containers/authenapp-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - keycloak_network
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.2
+    container_name: keycloak_2
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8080:8080" 
+    networks:
+      - keycloak_network
+    command:
+      - start-dev

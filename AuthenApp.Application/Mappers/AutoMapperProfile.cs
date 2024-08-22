@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AuthenApp.Application.DTOs;
 using AuthenApp.Application.Enitities;
+using AuthenApp.Core.Enitities;
 
 namespace AuthenApp.Application.Mappers
 {
@@ -10,6 +11,8 @@ namespace AuthenApp.Application.Mappers
         {
             CreateMap<SuperHero, SuperHeroDto>().ReverseMap();
             CreateMap<SuperHero, CreateSuperHeroDto>().ReverseMap();
+            CreateMap<Villain, VillainDto>().ReverseMap();
+            CreateMap<Villain, CreateVillainDto>().ReverseMap();
         }
     }
 }
